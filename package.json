@@ -1,10 +1,10 @@
 {
   "name": "mealplan-back",
   "version": "1.0.0",
-  "description": "// Init a project with Node.js ```shell  npm init - y ```",
+  "description": "mealplan backend with MEN",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon aplication.js",
+    "dev": "nodemon application.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
