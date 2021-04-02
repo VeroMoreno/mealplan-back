@@ -28,3 +28,43 @@ exports.insertMeal = (request, response) => {
   })
 }
 
+exports.getMeal = (request, response) => {
+  let id = request.params.id
+  MealService.getMeal(id)
+  .then(mealData => {
+    response.json(mealData)
+  })
+  .catch(error => {
+    console.log("error-Controller getMeal", error)
+    response.statusCode = error.codigo
+    response.json(error)
+  })
+}
+
+exports.updateMeal = (request, response) => {
+  let meal = request.body
+  let id = request.params.id
+  meal._id = id
+  MealService.updateMeal(meal)
+  .then(mealUpdated => {
+    response.json(mealUpdated)
+  })
+  .catch(error => {
+    console.log("error-Controller updateMeal", error)
+    response.statusCode = error.codigo
+    response.json(error)
+  })
+}
+
+exports.deleteMeal = (request, response) => {
+  let { id } = request.params
+  MealService.deleteMeal(id)
+  .then(mealDeleted => {
+    response.json(mealDeleted)
+  })
+  .catch(error => {
+    console.log("error-Controller deleteMeal", error)
+    response.statusCode = error.codigo
+    response.json(error)
+  })
+}
