@@ -2,7 +2,7 @@ const MealService = require('../services/meal.service')
 
 exports.getMeals = (request, response) => {
   // Validate request parameters, queries using express-validator
-  let data = request.query.data
+  let { data } = request.query
   MealService.getMeals(data)
   .then(listData => {
     response.json(listData)
@@ -29,7 +29,7 @@ exports.insertMeal = (request, response) => {
 }
 
 exports.getMeal = (request, response) => {
-  let id = request.params.id
+  let { id } = request.params
   MealService.getMeal(id)
   .then(mealData => {
     response.json(mealData)
@@ -43,7 +43,7 @@ exports.getMeal = (request, response) => {
 
 exports.updateMeal = (request, response) => {
   let meal = request.body
-  let id = request.params.id
+  let { id } = request.params
   meal._id = id
   MealService.updateMeal(meal)
   .then(mealUpdated => {
