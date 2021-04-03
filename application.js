@@ -5,8 +5,8 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
-const usersRouter = require('./users/routes/user.router')
-const mealsRouter = require('./meals/routes/meal.router')
+const usersRouter = require('./app/routes/user.router')
+const mealsRouter = require('./app/routes/meal.router')
 
 app.use(cors()) // any origin works
 // Supports request when an obj is passed and it will be parsed
