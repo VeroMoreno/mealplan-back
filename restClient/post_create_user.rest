@@ -5,5 +5,5 @@ Content-Type: application/json
   "login"    : "admin",
   "pw"       : "admin",
   "rol"      : "admin",
-  "nombre"   : "Veronica"
+  "name"     : "Veronica"
 }

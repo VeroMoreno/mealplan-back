@@ -5,7 +5,7 @@ const userSchema = new Schema({
   login     : String,
   pw        : String,
   rol       : String,
-  nombre    : String
+  name      : String
 })
 
 userSchema.set('toJSON', {

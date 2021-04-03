@@ -5,6 +5,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
+const loginAuthRouter = require('./app/authentication/loginAuth.router')
 const usersRouter = require('./app/routes/user.router')
 const mealsRouter = require('./app/routes/meal.router')
 
@@ -14,7 +15,7 @@ app.use(express.json())
 
 // middlewares (order matters)
 // app.use(interceptorJWT)
-// app.use(authRouter) // autenticacion jwt
+app.use(loginAuthRouter) // autenticacion jwt
 app.use(usersRouter)
 app.use(mealsRouter)
 
