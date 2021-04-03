@@ -15,7 +15,7 @@ exports.getUsers = (request, response) => {
 }
 
 exports.insertUser = (request, response) => {
-  let data = request.body
+  const data = request.body
   UserService.insertUser(data)
   .then(insertedData => {
     response.statusCode = 201;

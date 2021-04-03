@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt')
 const User = require('../models/user.model')
 
 exports.getUsers = (query) => {
@@ -11,10 +12,18 @@ exports.getUsers = (query) => {
   })
 }
 
-exports.insertUser = (data) => {
+exports.insertUser = async (data) => {
+  const saltRounds = 10
+  const hashedPassword = await bcrypt.hash(data.pw, saltRounds)
   return new Promise((resolve, reject) => {
       delete data._id
-      let userData = new User(data)
+      // How to use  Object.assign(userData, other)
+      let userData = new User({
+        login: data.login,
+        pw: hashedPassword,
+        rol: data.rol,
+        nombre: data.nombre
+      })
       userData.save()
       .then(dataInserted => {
         resolve(dataInserted)
