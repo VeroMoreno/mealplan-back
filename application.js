@@ -5,6 +5,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
+const usersRouter = require('./users/routes/user.router')
 const mealsRouter = require('./meals/routes/meal.router')
 
 app.use(cors()) // any origin works
@@ -14,6 +15,7 @@ app.use(express.json())
 // middlewares (order matters)
 // app.use(interceptorJWT)
 // app.use(authRouter) // autenticacion jwt
+app.use(usersRouter)
 app.use(mealsRouter)
 
 app.disable('x-powered-by')
