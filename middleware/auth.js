@@ -10,10 +10,7 @@ module.exports = (req, res, next) => {
     const decodedToken = jwt.verify(token, process.env.JWTSECRET, {algorithm: 'HS512'});
     console.log("decodedToken : ", decodedToken)
     // extraemos el ID de usuario de nuestro token
-    console.log(decodedToken.userId)
-    const userId = decodedToken.userId;
-    console.log(decodedToken.userId)
-    console.log(req.body.userId)
+    const userId = decodedToken.id;
     // si la solicitud contiene un ID de usuario, lo comparamos con el extraído del token; si no son iguales, error!
     if (req.body.userId && req.body.userId !== userId) {
       throw 'Invalid user ID';
