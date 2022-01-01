@@ -1,1 +1,0 @@
-GET http://localhost:3002/meals/60674b945fa38c3aa496a13b
